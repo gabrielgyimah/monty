@@ -2,12 +2,12 @@
 
 int execute_monty(FILE *file_monty)
 {
-    char *curr_line = NULL;
-    unsigned int line_size = 0;
+    char *current_line = NULL;
+    unsigned int current_line_size = 0;
 
-    while((getline(&curr_line, &line_size, file_monty)) != -1)
+    while((getline(&current_line, &current_line_size, file_monty)) != -1)
     {
-        _line_tokenizer(curr_line);
+        _line_tokenizer(current_line);
     }
        return (0);
 }
