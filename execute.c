@@ -7,7 +7,9 @@ int execute_monty(FILE *file_monty)
 
     while((getline(&current_line, &current_line_size, file_monty)) != -1)
     {
-        _line_tokenizer(current_line);
+        line_tokenizer(current_line);
     }
+
+    if (line_)
        return (0);
 }

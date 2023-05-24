@@ -49,4 +49,6 @@ typedef struct general_status
 
 int _line_tokenizer(char * current_line);
 int execute_monty(FILE *file_monty);
+stack_t *push_func(stack_t **head, const int n);
+
 #endif /* _MONTY_H_ */

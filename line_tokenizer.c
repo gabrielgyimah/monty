@@ -24,14 +24,14 @@ int _line_tokenizer(char * current_line)
         {
             return (1);
         }
-
-        counter++;
         token = strtok(NULL, " ");
+        counter++;
     }
 
     actual_val = atoi(cmd_val);
     printf("%s\n", cmd);
     printf("%d\n", actual_val);
+    printf("%d\n", counter);
 
     return (0);
 }
