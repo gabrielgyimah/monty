@@ -13,6 +13,9 @@
 
 #define DELIM " \n\t\r\a\b"
 
+/*Captures the current command mode*/
+char last_cmd_type[20];
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -22,6 +25,7 @@
  * Description: doubly linked list node structure
  * for stack, queues, LIFO, FIFO
  */
+
 typedef struct stack_s
 {
         int n;
@@ -55,5 +59,6 @@ int execute_monty(FILE *file_monty);
 stack_t *push_func(stack_t **head, const int n);
 
 int opcode_stack(char *command, int actual_value);
+int opcode_queue(char *command, int actual_value);
 
 #endif /* _MONTY_H_ */
