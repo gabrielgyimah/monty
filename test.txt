@@ -30,3 +30,5 @@ swap
 pop
 rotl
 pop
+pchar
+pchar

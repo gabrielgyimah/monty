@@ -1,12 +1,10 @@
 #include "monty.h"
-
 /**
  * opcode_stack - decides whether command is stack or queue
  * @command: The current stack command
  * @actual_value: The corresponding value of the command
  * Return: 0 always
  */
-
 int opcode_stack(char *command, int actual_value)
 {
 	if (last_cmd_type == NULL || command == NULL)
@@ -31,7 +29,9 @@ int opcode_stack(char *command, int actual_value)
 		printf("Mul: \n");
 	else if (strncmp(command, "mod ", 4) == 0 || strcmp(command, "mod\n") == 0)
 		printf("Mod: \n");
-	else if (strncmp(command, "pchar ", 6) == 0 || strcmp(command, "pchar\n") == 0)
+	else if (strncmp(command, "pchar ", 6) == 0)
+		printf("Pchar: \n");
+	else if (strcmp(command, "pchar\n") == 0)
 		printf("Pchar: \n");
 	else if (strncmp(command, "pstr ", 5) == 0 || strcmp(command, "pstr\n") == 0)
 		printf("Pstr: \n");
