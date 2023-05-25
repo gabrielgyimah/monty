@@ -11,13 +11,21 @@ int opcode_stack(char *command, int actual_value, int line_number)
 	ptr = stack_init();
 	if (last_cmd_type == NULL || command == NULL)
 		return (-1);
-	else if (strncmp(command, "push ", 5) == 0 || strcmp(command, "push\n") == 0)
-		printf("Push: Line%d\n", line_number);
-	else if (strncmp(command, "pop ", 4) == 0 || strcmp(command, "pop\n") == 0)
-		printf("Pop: Line%d\n", line_number);
-	else if (strncmp(command, "pall ", 5) == 0 || strcmp(command, "pall\n") == 0)
-		printf("Pall: Line%d\n", line_number);
-	else if (strncmp(command, "pint ", 5) == 0 || strcmp(command, "pint\n") == 0)
+	else if (strncmp(command, "push", 5) == 0 || strcmp(command, "push\n") == 0)
+	{
+		push_func(&ptr, actual_value);
+		printf("\n------------\n");
+		/* pall_func(ptr); */
+	}
+	else if (strncmp(command, "pop", 4) == 0 || strcmp(command, "pop\n") == 0)
+		pop(&ptr);
+	else if (strncmp(command, "pall", 5) == 0 || strcmp(command, "pall\n") == 0)
+	{
+		printf("\n------------\n");
+		printf("\n------------\n");
+		pall_func(ptr);
+	}
+	/* else if (strncmp(command, "pint ", 5) == 0 || strcmp(command, "pint\n") == 0)
 		printf("Pint: Line%d\n", line_number);
 	else if (strncmp(command, "swap ", 5) == 0 || strcmp(command, "swap\n") == 0)
 		printf("Swap: Line%d\n", line_number);
@@ -44,16 +52,13 @@ int opcode_stack(char *command, int actual_value, int line_number)
 	else if (strncmp(command, "# ", 2) == 0 || strcmp(command, "#\n") == 0)
 		printf("Comment: Line%d\n", line_number);
 	else if (strncmp(command, "nop ", 4) == 0 || strcmp(command, "nop\n") == 0)
-		printf("Nop: Line%d\n", line_number);
+		printf("Nop: Line%d\n", line_number); */
 	else
-<<<<<<< HEAD
-		printf("Pusher: \n");
-=======
 	{
 		fprintf(stderr, "Error: End of file L<%d>\n", line_number);
 		/*exit(EXIT_FAILURE);*/
 	}
->>>>>>> ff6120e9b10d7d81d576385dc985546de57aba3b
+
 
 	return (0);
 }

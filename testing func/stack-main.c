@@ -32,17 +32,15 @@ stack_t *stack_init(void)
  * Return: stack_mode(0), queue_mode(1), or 2
  */
 
-int check_mode(stack_t *s)
+int main()
 {
-    if (s->n == STACK_MODE)
-    {
-        return (STACK_MODE);
-    }
+    stack_t *ptr;
+    ptr = stack_init();
 
-    else if (s->n == QUEUE_MODE)
-    {
-        return (QUEUE_MODE);
-    }
-
-    return (2);
+    push_func(&ptr, 10);
+    push_func(&ptr, 20);
+    push_func(&ptr, 30);
+    
+    pall_func(ptr);
+    return (0);
 }
