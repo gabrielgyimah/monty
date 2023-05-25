@@ -53,13 +53,13 @@ typedef struct general_status
 
 } gen_stat;
 
-int line_tokenizer(char * current_line);
+int line_tokenizer(char * current_line, int line_number);
 int execute_monty(FILE *file_monty);
 
 stack_t *push_func(stack_t **head, const int n);
 
-int opcode_stack(char *command, int actual_value);
-int opcode_queue(char *command, int actual_value);
+int opcode_stack(char *command, int actual_value, int line_number);
+int opcode_queue(char *command, int actual_value, int line_number);
 stack_t *pint(stack_t **head);
 
 #endif /* _MONTY_H_ */

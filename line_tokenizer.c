@@ -8,7 +8,7 @@
  * Return: success
  */
 
-int line_tokenizer(char *current_line)
+int line_tokenizer(char *current_line, int line_number)
 {
 	char *token;
 	char *cmd;
@@ -54,7 +54,7 @@ int line_tokenizer(char *current_line)
 	if (strncmp(last_cmd_type, "queue ", 6) == 0 || strcmp(last_cmd_type, "queue\n") == 0)
 		printf("cmd is queue\n");
 	else
-		opcode_stack(cmd, actual_val);
+		opcode_stack(cmd, actual_val, line_number);
 
 	return (0);
 }

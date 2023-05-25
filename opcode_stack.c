@@ -5,44 +5,49 @@
  * @actual_value: The corresponding value of the command
  * Return: 0 always
  */
-int opcode_stack(char *command, int actual_value)
+int opcode_stack(char *command, int actual_value, int line_number)
 {
 	if (last_cmd_type == NULL || command == NULL)
 		return (-1);
 	else if (strncmp(command, "push ", 5) == 0 || strcmp(command, "push\n") == 0)
-		printf("Push: \n");
+		printf("Push: Line%d\n", line_number);
 	else if (strncmp(command, "pop ", 4) == 0 || strcmp(command, "pop\n") == 0)
-		printf("Pop: \n");
+		printf("Pop: Line%d\n", line_number);
 	else if (strncmp(command, "pall ", 5) == 0 || strcmp(command, "pall\n") == 0)
-		printf("Pall: \n");
+		printf("Pall: Line%d\n", line_number);
 	else if (strncmp(command, "pint ", 5) == 0 || strcmp(command, "pint\n") == 0)
-		printf("Pint: \n");
+		printf("Pint: Line%d\n", line_number);
 	else if (strncmp(command, "swap ", 5) == 0 || strcmp(command, "swap\n") == 0)
-		printf("Swap: \n");
+		printf("Swap: Line%d\n", line_number);
 	else if (strncmp(command, "add ", 4) == 0 || strcmp(command, "add\n") == 0)
-		printf("Add: \n");
+		printf("Add: Line%d\n", line_number);
 	else if (strncmp(command, "sub ", 4) == 0 || strcmp(command, "sub\n") == 0)
-		printf("Sub: \n");
+		printf("Sub: Line%d\n", line_number);
 	else if (strncmp(command, "div ", 4) == 0 || strcmp(command, "div\n") == 0)
-		printf("Div: \n");
+		printf("Div: Line%d\n", line_number);
 	else if (strncmp(command, "mul ", 4) == 0 || strcmp(command, "mul\n") == 0)
-		printf("Mul: \n");
+		printf("Mul: Line%d\n", line_number);
 	else if (strncmp(command, "mod ", 4) == 0 || strcmp(command, "mod\n") == 0)
-		printf("Mod: \n");
+		printf("Mod: Line%d\n", line_number);
 	else if (strncmp(command, "pchar ", 6) == 0)
-		printf("Pchar: \n");
+		printf("Pchar: Line%d\n", line_number);
 	else if (strcmp(command, "pchar\n") == 0)
-		printf("Pchar: \n");
+		printf("Pchar: Line%d\n", line_number);
 	else if (strncmp(command, "pstr ", 5) == 0 || strcmp(command, "pstr\n") == 0)
-		printf("Pstr: \n");
+		printf("Pstr: Line%d\n", line_number);
 	else if (strncmp(command, "rotl ", 5) == 0 || strcmp(command, "rotl\n") == 0)
-		printf("Rotl: \n");
+		printf("Rotl: Line%d\n", line_number);
 	else if (strncmp(command, "rotr ", 5) == 0 || strcmp(command, "rotr\n") == 0)
-		printf("Rotr: \n");
+		printf("Rotr: Line%d\n", line_number);
 	else if (strncmp(command, "# ", 2) == 0 || strcmp(command, "#\n") == 0)
-		printf("Comment: \n");
+		printf("Comment: Line%d\n", line_number);
+	else if (strncmp(command, "nop ", 4) == 0 || strcmp(command, "nop\n") == 0)
+		printf("Nop: Line%d\n", line_number);
 	else
-		printf("Push: \n");
+	{
+		fprintf(stderr, "Error: End of file L<%d>\n", line_number);
+		/*exit(EXIT_FAILURE);*/
+	}
 
 	return (0);
 }
