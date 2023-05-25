@@ -1,9 +1,15 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#define _POSIX_C_SOURCE 200809L
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+
+#define STACK_MODE 0
+#define QUEUE_MODE 1
+#define FAILURE -1
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -35,6 +41,13 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-int _line_tokenizer(char * current_line);
+typedef struct general_status
+{
+    int stat;
 
-#endif
+} gen_stat;
+
+int line_tokenizer(char * current_line);
+int execute_monty(FILE *file_monty);
+
+#endif /* _MONTY_H_ */

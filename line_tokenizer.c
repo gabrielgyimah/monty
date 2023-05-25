@@ -8,6 +8,8 @@
  * Return: success
  */
 
+char last_cmd_type[20];
+
 int line_tokenizer(char *current_line)
 {
 	char *token;
@@ -15,8 +17,19 @@ int line_tokenizer(char *current_line)
 	char *cmd_val;
 	int actual_val;
 	int counter = 0;
+	char *cmd_type = NULL;
 
 	token = strtok(current_line, " ");
+
+	if (strncmp(token, "queue ", 6) == 0 || strcmp(token, "queue\n") == 0)
+	{
+		strcpy(last_cmd_type, token);
+	}
+
+	if (strncmp(token, "stack ", 6) == 0 || strcmp(token, "stack\n") == 0)
+	{
+		strcpy(last_cmd_type, token);
+	}
 
 	while (token != NULL)
 	{
@@ -28,7 +41,7 @@ int line_tokenizer(char *current_line)
 		{
 			cmd_val = token;
 		}
-		els
+		else
 		{
 			return (1);
 		}
@@ -36,8 +49,8 @@ int line_tokenizer(char *current_line)
 		token = strtok(NULL, " ");
 	}
 	actual_val = atoi(cmd_val);
-	printf("Actual command: %s\n", cmd);
-	printf("command value: %d\n", actual_val);
+
+	printf("Actual command: %s - Command Value: %d - Command mode: %s\n", cmd, actual_val, last_cmd_type);
 
 	return (0);
 }
