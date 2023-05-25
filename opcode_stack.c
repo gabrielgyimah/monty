@@ -7,16 +7,18 @@
  */
 int opcode_stack(char *command, int actual_value)
 {
+	stack_t *ptr;
+	ptr = stack_init();
 	if (last_cmd_type == NULL || command == NULL)
 		return (-1);
-	else if (strncmp(command, "push ", 5) == 0 || strcmp(command, "push\n") == 0)
-		printf("Push: \n");
+	else if (strncmp(command, "push", 5) == 0 || strcmp(command, "push\n") == 0)
+		push_func(&ptr, actual_value);
 	else if (strncmp(command, "pop ", 4) == 0 || strcmp(command, "pop\n") == 0)
-		printf("Pop: \n");
+		pop(&ptr);
 	else if (strncmp(command, "pall ", 5) == 0 || strcmp(command, "pall\n") == 0)
-		printf("Pall: \n");
+		pall_func(ptr);
 	else if (strncmp(command, "pint ", 5) == 0 || strcmp(command, "pint\n") == 0)
-		printf("Pint: \n");
+		pint(&ptr);
 	else if (strncmp(command, "swap ", 5) == 0 || strcmp(command, "swap\n") == 0)
 		printf("Swap: \n");
 	else if (strncmp(command, "add ", 4) == 0 || strcmp(command, "add\n") == 0)
@@ -42,7 +44,7 @@ int opcode_stack(char *command, int actual_value)
 	else if (strncmp(command, "# ", 2) == 0 || strcmp(command, "#\n") == 0)
 		printf("Comment: \n");
 	else
-		printf("Push: \n");
+		printf("Pusher: \n");
 
 	return (0);
 }

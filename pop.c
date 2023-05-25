@@ -15,11 +15,11 @@ stack_t *pop(stack_t **head)
 	temp->prev = (*head)->prev;
 	temp->n = (*head)->n;
 
-	head = head->next;
+	temp = temp->next;
 	
 	fprintf(stdout, "%d", temp->n);
 	free(temp);
 	temp = NULL;
 
-	return (top);
+	return (*head);
 }

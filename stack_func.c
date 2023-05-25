@@ -50,16 +50,17 @@ stack_t *push_func(stack_t **top, const int n)
  *
  * Return: size of the stack
  */
-size_t pall_func(const stack_t *top)
+size_t pall_func(stack_t *top)
 {
-        const stack_t *temp;
-        int size = 0;
-        temp = top;
+    stack_t *temp;
+    int size = 0;
+    temp = top;
 
-    else if (s->n == QUEUE_MODE)
+    while(temp)
     {
-        return (QUEUE_MODE);
+        printf("%d\n", temp->n);
+        temp = temp->next;
+        size++;
     }
-
-    return (2);
+    return (size);
 }

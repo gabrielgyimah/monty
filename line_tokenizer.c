@@ -52,7 +52,7 @@ int line_tokenizer(char *current_line)
 
 	/*printf("Actual command: %s - Command Value: %d - Command mode: %s\n", cmd, actual_val, last_cmd_type);*/
 	if (strncmp(last_cmd_type, "queue ", 6) == 0 || strcmp(last_cmd_type, "queue\n") == 0)
-		printf("cmd is queue\n");
+		opcode_stack(cmd, actual_val);
 	else
 		opcode_stack(cmd, actual_val);
 

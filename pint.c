@@ -8,9 +8,9 @@
  * Return: top
  */
 
-stack_t *pint(stack_t **head)
+stack_t *pint(stack_t **top)
 {
-	fprintf(stdout, "%d\n", (*head)->n);
+	fprintf(stdout, "%d\n", (*top)->n);
 
-	return (top);
+	return (*top);
 }

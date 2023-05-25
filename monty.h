@@ -55,11 +55,15 @@ typedef struct general_status
 
 int line_tokenizer(char * current_line);
 int execute_monty(FILE *file_monty);
+stack_t *stack_init(void);
+
 
 stack_t *push_func(stack_t **head, const int n);
+size_t pall_func(stack_t *top);
 
 int opcode_stack(char *command, int actual_value);
 int opcode_queue(char *command, int actual_value);
 stack_t *pint(stack_t **head);
+stack_t *pop(stack_t **head);
 
 #endif /* _MONTY_H_ */
