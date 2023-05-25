@@ -11,6 +11,8 @@
 #define QUEUE_MODE 1
 #define FAILURE -1
 
+#define DELIM " \n\t\r\a\b"
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -47,7 +49,7 @@ typedef struct general_status
 
 } gen_stat;
 
-int _line_tokenizer(char * current_line);
+int line_tokenizer(char * current_line);
 int execute_monty(FILE *file_monty);
 stack_t *push_func(stack_t **head, const int n);
 

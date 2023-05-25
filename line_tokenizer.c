@@ -1,6 +1,6 @@
 #include "monty.h"
 
-int _line_tokenizer(char * current_line)
+int line_tokenizer(char * current_line)
 {
     char *token;
     char *cmd;
@@ -24,7 +24,7 @@ int _line_tokenizer(char * current_line)
         {
             return (1);
         }
-        token = strtok(NULL, " ");
+        token = strtok(NULL,DELIM);
         counter++;
     }
 
